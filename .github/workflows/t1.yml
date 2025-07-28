@@ -1,0 +1,20 @@
+name: "Prueba de Action"
+
+on:
+    push:
+        branches: [release]
+    workflow_dispatch:
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    permissions:
+        contents: read
+
+    steps:
+
+      - name: Ejecutar el Action
+        uses: tareas-dani/t1action@main
+        with:
+          nombre: ${{ vars.NOMBRE }}
+          edad: ${{ vars.EDAD }}
