@@ -17,4 +17,4 @@ jobs:
               uses: tareas-dani/t1action@main
               with:
                 nombre: ${{ env.NOMBRE }}
-                edad: ${{ env.EDAD }}
+                edad: 10
