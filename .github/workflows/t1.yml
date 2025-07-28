@@ -8,7 +8,7 @@ on:
 jobs:
     test-action:
         runs-on: ubuntu-latest
-        environment: ${{ github.ref_name == 'develop' && 'dev' || github.ref_name == 'main' && 'prod' || github.ref_name == 'release' && 'qa' }}
+        environment: qa
         permissions:
             contents: read
 
@@ -16,5 +16,5 @@ jobs:
             - name: Ejecutar el Action
               uses: tareas-dani/t1action@main
               with:
-                nombre: daniela
-                edad: 10
+                nombre: ${{ vars.NOMBRE }}
+                edad: ${{ vars.EDAD }}
