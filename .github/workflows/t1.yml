@@ -16,5 +16,5 @@ jobs:
             - name: Ejecutar el Action
               uses: tareas-dani/t1action@main
               with:
-                nombre: ${{ env.NOMBRE }}
+                nombre: daniela
                 edad: 10
