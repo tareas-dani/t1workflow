@@ -19,14 +19,13 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             contents: read
-        entorno: ${{ github.event.inputs.entorno }}
 
 
         steps:
             - name: Ejecutar el Action
               uses: tareas-dani/t1action@main
               with:
-                
+                entorno: ${{ github.event.inputs.entorno }}
                 nombre: ${{ vars.NOMBRE }}
                 edad: 20
     
@@ -34,3 +33,4 @@ jobs:
         uses: tareas-dani/reusable-workflows/.github/workflows/hola.yml@main
         with:
             nombre: 'Daniela'
+            entorno: ${{ github.event.inputs.entorno }}
