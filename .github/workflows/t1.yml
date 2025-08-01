@@ -28,7 +28,7 @@ jobs:
               id: actiontarea
               with:
                 nombre: ${{ vars.NOMBRE }}
-                edad: 20
+                edad: ${{ vars.EDAD }}
         
             - name: Imprimir el resultado del Action
               run: |
