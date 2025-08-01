@@ -3,28 +3,30 @@ name: "Prueba de Action"
 on:
     #push:
         #branches: [main,develop]
-        workflow_dispatch:
-            inputs: 
-                entorno:
-                    required: true
-                    default: 'dev'
-                    type: choice
-                    options: 
-                        - dev
-                        - prod
-                        - qa
+    workflow_dispatch:
+        inputs: 
+            entorno:
+                required: true
+                default: 'dev'
+                type: choice
+                options: 
+                    - dev
+                    - prod
+                    - qa
 
 jobs:
     test-action-job:
         runs-on: ubuntu-latest
         permissions:
             contents: read
-            entorno: ${{ github.event.inputs.entorno || 'dev' }}
+        entorno: ${{ github.event.inputs.entorno }}
+
 
         steps:
             - name: Ejecutar el Action
               uses: tareas-dani/t1action@main
               with:
+                
                 nombre: ${{ vars.NOMBRE }}
                 edad: 20
     
