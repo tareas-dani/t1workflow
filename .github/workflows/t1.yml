@@ -25,7 +25,7 @@ jobs:
               uses: tareas-dani/t1action@main
               with:
                 nombre: ${{ vars.NOMBRE }}
-                edad: ${{ vars.EDAD }}
+                edad: 20
     
     llamado-reusable-workflow:
         uses: tareas-dani/reusable-workflows/.github/workflows/hola.yml@main
