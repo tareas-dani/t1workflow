@@ -19,18 +19,22 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             contents: read
+        environment: ${{ github.event.inputs.entorno || 'dev' }}
 
 
         steps:
             - name: Ejecutar el Action
               uses: tareas-dani/t1action@main
+              id: actiontarea
               with:
-                entorno: ${{ github.event.inputs.entorno }}
                 nombre: ${{ vars.NOMBRE }}
                 edad: 20
+        
+            - name: Imprimir el resultado del Action
+              run: |
+                echo "Multiplicacion es: ${{ steps.actiontarea.outputs.multiplicacion }}"
     
     llamado-reusable-workflow:
         uses: tareas-dani/reusable-workflows/.github/workflows/hola.yml@main
         with:
             nombre: 'Daniela'
-            entorno: ${{ github.event.inputs.entorno }}
