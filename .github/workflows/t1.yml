@@ -19,6 +19,7 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             contents: read
+            entorno: ${{ github.event.inputs.entorno || 'dev' }}
 
         steps:
             - name: Ejecutar el Action
